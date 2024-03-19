@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  snap-sort-db:
+    image: postgres
+    restart: always
+    container_name: snap-sort-db
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: oKZ4NgOyDDf7
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+
+volumes:
+  postgres:
