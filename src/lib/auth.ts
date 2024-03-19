@@ -1,7 +1,8 @@
 import { db } from '@/db';
 import { DrizzleAdapter } from '@auth/drizzle-adapter';
-import { AuthOptions, DefaultSession, getServerSession } from 'next-auth';
+import { DefaultSession } from 'next-auth';
 import { Adapter } from 'next-auth/adapters';
+import { getServerSession as serverSession } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
 declare module 'next-auth' {
@@ -22,4 +23,9 @@ const authConfig = {
   ],
 };
 
-export { authConfig };
+async function getServerSession() {
+  const session = await serverSession(authConfig);
+  return session;
+}
+
+export { authConfig, getServerSession };

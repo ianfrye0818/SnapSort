@@ -5,7 +5,6 @@ import Providers from '@/providers/providers';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { SideMenu } from '@/components/sidebar';
-import { db } from '@/db';
 
 const inter = Inter({ subsets: ['latin'] });
 
