@@ -19,9 +19,9 @@ export default function Header() {
           {session.status === 'loading' && null}
           {session.status === 'authenticated' && (
             <div className='flex gap-3 items-center'>
-              <Avatar className='p-3 rounded-full bg-pink-400 flex items-center justify-center'>
+              <Avatar className=''>
                 <AvatarImage src={image} />
-                <AvatarFallback className='text-xl text-white'>
+                <AvatarFallback className='text-xl text-white p-3 rounded-full bg-pink-400 flex items-center justify-center'>
                   {(user.email ?? '')[0]?.toUpperCase()}
                 </AvatarFallback>
               </Avatar>
