@@ -5,7 +5,7 @@ import Providers from '@/providers/providers';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { SideMenu } from '@/components/sidebar';
-import { getServerSession } from '@/lib/auth';
+import { auth } from '@/auth';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,8 +19,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getServerSession();
-  console.log(session);
   return (
     <html lang='en'>
       <body>

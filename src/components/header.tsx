@@ -3,9 +3,9 @@ import React from 'react';
 import { ModeToggle } from './ui/dark-mode-toggle';
 import { Button } from './ui/button';
 import { signIn, signOut, useSession } from 'next-auth/react';
-import { Avatar, AvatarImage } from './ui/avatar';
-import { AvatarFallback } from '@radix-ui/react-avatar';
 import { Session } from 'next-auth';
+import Image from 'next/image';
+import { Avatar, AvatarImage } from './ui/avatar';
 
 export default function Header() {
   const session = useSession();
@@ -19,11 +19,15 @@ export default function Header() {
           {session.status === 'loading' && null}
           {session.status === 'authenticated' && (
             <div className='flex gap-3 items-center'>
-              <Avatar className=''>
+              {/* <Image
+                className='rounded-full'
+                src={image}
+                alt='avitar'
+                width={40}
+                height={40}
+              /> */}
+              <Avatar>
                 <AvatarImage src={image} />
-                <AvatarFallback className='text-xl text-white p-3 rounded-full bg-pink-400 flex items-center justify-center'>
-                  {(user.email ?? '')[0]?.toUpperCase()}
-                </AvatarFallback>
               </Avatar>
               <Button onClick={() => signOut()}>Sign Out</Button>
             </div>
